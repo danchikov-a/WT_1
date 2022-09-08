@@ -14,8 +14,18 @@ public class InputServiceImpl implements InputService {
 
         Map<Integer, Double> resultMap = new LinkedHashMap<>();
 
-        for (int i = a; i < b; i += h) {
-            resultMap.put(i, Math.tan(i));
+        resultMap.put(a, Math.tan(a));
+
+        if ((a < b && h > 0) || (a > b && h < 0)) {
+            if(h > 0) {
+                for (int i = a + h; i < b; i += h) {
+                    resultMap.put(i, Math.tan(i));
+                }
+            } else {
+                for (int i = a + h; i > b; i += h) {
+                    resultMap.put(i, Math.tan(i));
+                }
+            }
         }
 
         resultMap.put(b, Math.tan(b));
