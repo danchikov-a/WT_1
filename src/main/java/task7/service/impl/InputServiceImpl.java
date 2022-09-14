@@ -15,7 +15,7 @@ public class InputServiceImpl implements InputService {
             for (int i = step, j; i < arr.length; i++) {
                 int value = arr[i];
 
-                for (j = i - step; (j >= 0) && (arr[j] > value); j -= step) {
+                for (j = i - step; j >= 0 && arr[j] > value; j -= step) {
                     arr[j + step] = arr[j];
                 }
 
