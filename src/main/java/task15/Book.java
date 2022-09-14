@@ -1,5 +1,6 @@
-package task12;
+package task15;
 
+import java.util.Comparator;
 import java.util.Objects;
 
 public class Book {
@@ -7,6 +8,22 @@ public class Book {
     private String author;
     private int price;
     private static int edition;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public static int getEdition() {
+        return edition;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -30,5 +47,14 @@ public class Book {
     @Override
     public String toString() {
         return String.format("Book{title='%s', author='%s', price=%d}", title, author, price);
+    }
+
+    @Override
+    protected Object clone() {
+        Book book = new Book();
+        book.title = this.title;
+        book.author = this.author;
+        book.price = this.price;
+        return book;
     }
 }
